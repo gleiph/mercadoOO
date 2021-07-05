@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author pedro
  */
-public class Produtos {
+public class Produto {
     private String nome;
     private String marca;
     private int quantidadeEstoque;
@@ -20,7 +20,12 @@ public class Produtos {
     private String categoria;
     private float peso;
 
-    public Produtos(String nome, String marca, int quantidadeEstoque, float preco, String descricao, String categoria, float peso) {
+    public Produto(){
+        
+    }
+            
+    
+    public Produto(String nome, String marca, int quantidadeEstoque, float preco, String descricao, String categoria, float peso) {
         this.nome = nome;
         this.marca = marca;
         this.quantidadeEstoque = quantidadeEstoque;
@@ -100,6 +105,11 @@ public class Produtos {
 
     public float getPeso() {
         return peso;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "nome=" + nome + ", marca=" + marca + ", quantidadeEstoque=" + quantidadeEstoque + ", preco=" + preco + ", descricao=" + descricao + ", categoria=" + categoria + ", peso=" + peso + '}';
     }
     
     

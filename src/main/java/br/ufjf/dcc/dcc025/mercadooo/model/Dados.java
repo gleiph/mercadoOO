@@ -5,12 +5,19 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author gleip
  */
 public class Dados {
  
+    public static List<Produto> produtos; 
     
+    static {
+        produtos = new ArrayList<>();
+    }
     
 }
