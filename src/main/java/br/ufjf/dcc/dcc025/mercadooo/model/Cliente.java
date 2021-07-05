@@ -5,10 +5,91 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.model;
 
-/**
- *
- * @author gleiph
- */
+
 public class Cliente {
-    
+    String nome;
+    String cpfcnpj;
+    String endereco;
+    String dataNascimento;
+    String email;
+    String telefone;
+
+
+    public Cliente (){
+        this.nome = null;
+        this.cpfcnpj = null;
+        this.dataNascimento = null;
+        this.email = null;
+        this.endereco = null;
+        this.telefone = null;
+    }
+    public Cliente (String name, String doc, String nasc, String mail, String cep, String tel){
+        this.nome = name;
+        this.cpfcnpj = doc;
+        this.dataNascimento = nasc;
+        this.email = mail;
+        this.endereco = cep;
+        this.telefone = tel;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpfcnpj() {
+        return cpfcnpj;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+    public void edita() {
+        String options[] = new String [4];
+        options[0] = "E-mail";
+        options[1] = "Endereço";
+        options[4] = "Telefone";
+
+        int option = JOptionPane.showOptionDialog(null, "O que deseja editar?", "Editar dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+            null, options, options[0]);
+        switch(option){
+            case 0:
+                String mail = JOptionPane.showInputDialog(null, "Digite o novo e-mail: ");
+                setEmail(mail);
+            case 1:
+                String end = JOptionPane.showInputDialog(null, "Digite o novo endereço: ");
+                setEndereco(end);
+            case 2:
+                String telefone = JOptionPane.showInputDialog(null, "Digite o novo número: (XX) XXXXX-XXXX");
+                setTelefone(telefone);
+            default:
+                JOptionPane.showMessageDialog(null, "Nenhum dado alterado.");
+        }
+    }
+
 }
