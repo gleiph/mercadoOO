@@ -5,6 +5,8 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.model;
 
+import javax.swing.JOptionPane;
+
 
 public class Cliente {
     String nome;
@@ -73,7 +75,7 @@ public class Cliente {
         String options[] = new String [4];
         options[0] = "E-mail";
         options[1] = "Endereço";
-        options[4] = "Telefone";
+        options[2] = "Telefone";
 
         int option = JOptionPane.showOptionDialog(null, "O que deseja editar?", "Editar dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
             null, options, options[0]);
