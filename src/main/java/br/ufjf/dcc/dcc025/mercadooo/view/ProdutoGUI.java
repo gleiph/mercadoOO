@@ -27,7 +27,9 @@ public class ProdutoGUI {
     private JTextField tfMarca;
     private JTextField tfCategoria;
     private JTextField tfPeso;
-    private JTextField tfDescricao;
+    private JTextField tfDescricao;    
+    private JTextField tfCodigo;
+
 
     
 
@@ -38,7 +40,9 @@ public class ProdutoGUI {
         this.tfMarca = new JTextField(50);
         this.tfCategoria = new JTextField(50);
         this.tfPeso = new JTextField(50);
-        this.tfDescricao = new JTextField(50);
+        this.tfDescricao = new JTextField(50);        
+        this.tfCodigo = new JTextField(50);
+
 
     }
 
@@ -52,7 +56,9 @@ public class ProdutoGUI {
         JLabel jlMarca = new JLabel("Marca: ");
         JLabel jlCategoria = new JLabel("Categoria: ");
         JLabel jlPeso = new JLabel("Peso: ");
-        JLabel jlDescricao = new JLabel("Descrição: ");
+        JLabel jlDescricao = new JLabel("Descrição: ");        
+        JLabel jlCodigo = new JLabel("Código: ");
+
 
         painel.setLayout(new GridLayout(0, 2));
 
@@ -76,6 +82,9 @@ public class ProdutoGUI {
 
         painel.add(jlQuantidade);
         painel.add(tfQuantidade);
+        
+        painel.add(jlCodigo);
+        painel.add(tfCodigo);
 
         return painel;
 
@@ -143,5 +152,8 @@ public class ProdutoGUI {
 
     public JTextField getTfDescricao() {
         return tfDescricao;
+    }
+    public JTextField getTfCodigo() {
+        return tfCodigo;
     }
 }

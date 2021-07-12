@@ -39,13 +39,13 @@ public class AdicionaProduto implements ActionListener{
         produto.setPreco(Float.parseFloat(produtoGUI.getTfPreco().getText()));
         produto.setQuantidadeEstoque(
                 Integer.parseInt(produtoGUI.getTfQuantidade().getText()));
-        
+        produto.setCodigo(produtoGUI.getTfCodigo().getText());
         
         Dados.produtos.add(produto);
         
         
         for (Produto produto1 : Dados.produtos) {
-            System.out.println(produto);
+            System.out.println(produto1);
         }
         
 
