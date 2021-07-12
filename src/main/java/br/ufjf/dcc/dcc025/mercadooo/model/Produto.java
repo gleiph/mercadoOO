@@ -19,13 +19,14 @@ public class Produto {
     private String descricao;
     private String categoria;
     private float peso;
+    private String codigo;
 
     public Produto(){
         
     }
             
     
-    public Produto(String nome, String marca, int quantidadeEstoque, float preco, String descricao, String categoria, float peso) {
+    public Produto(String nome, String marca, int quantidadeEstoque, float preco, String descricao, String categoria, float peso, String codigo) {
         this.nome = nome;
         this.marca = marca;
         this.quantidadeEstoque = quantidadeEstoque;
@@ -33,17 +34,39 @@ public class Produto {
         this.descricao = descricao;
         this.categoria = categoria;
         this.peso = peso;
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
     
+    public String getNome() {
+        return nome;
+    }
     
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+
+    public String getMarca() {
+        return marca;
+    }
+    
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+    
     public void setQuantidadeEstoque(int quantidadeEstoque) {
         if(quantidadeEstoque < 0 )
         {
@@ -52,7 +75,11 @@ public class Produto {
         }
         this.quantidadeEstoque = quantidadeEstoque;
     }
+    
 
+    public float getPreco() {
+        return preco;
+    }
     public void setPreco(float preco) {
         if(preco <= 0 )
         {
@@ -61,15 +88,28 @@ public class Produto {
         }
         this.preco = preco;
     }
+    
 
+    public String getDescricao() {
+        return descricao;
+    }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    
+    public String getCategoria() {
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
+
+    public float getPeso() {
+        return peso;
+    }
     public void setPeso(float peso) {
         if(peso < 0 )//Caso o produto seja vendido por quantidade o peso == 0
         {
@@ -79,37 +119,13 @@ public class Produto {
         this.peso = peso;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public int getQuantidadeEstoque() {
-        return quantidadeEstoque;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public float getPeso() {
-        return peso;
-    }
-
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + ", marca=" + marca + ", quantidadeEstoque=" + quantidadeEstoque + ", preco=" + preco + ", descricao=" + descricao + ", categoria=" + categoria + ", peso=" + peso + '}';
+        return "Produto{" + "nome=" + nome + ", marca=" + marca + 
+                ", quantidadeEstoque=" + quantidadeEstoque + 
+                ", preco=" + preco + ", descricao=" + descricao + 
+                ", categoria=" + categoria + ", peso=" + peso + 
+                ", codigo=" + codigo + '}';
     }
     
     
