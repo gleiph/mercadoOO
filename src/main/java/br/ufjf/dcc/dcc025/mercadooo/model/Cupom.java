@@ -26,13 +26,30 @@ public class Cupom {
     private double desconto;
     private int numeroDeCupons ;
     private LocalDate dataVencimento;
-    // botar uma data do dia de inicio
-    public Cupom(String nome_, int desconto_, String data) {
-        this.nome = nome_;
-        this.desconto = (double)(desconto_/100);
-        chaveCupom.put(nome_, Boolean.TRUE);
+    private LocalDate dataExpedicao;
+    public Cupom(String nome, int desconto) {
+        this.nome = nome;
+        this.desconto = (double)(desconto/100);
+        chaveCupom.put(nome, Boolean.TRUE);
+        Scanner teclado = new Scanner(System.in); 
+        System.out.println(" O cupom sera: "
+                + "\n 1 - Para tempo indeterminado"
+                + "\n 2 - Para tempo delimitado");
+        int i = teclado.nextInt();
+        if(i==2){
+        Scanner teclado1 = new Scanner(System.in); 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String data = teclado1.nextLine();
+        this.dataExpedicao = LocalDate.parse(data, dateTimeFormatter);
+        
+        data = teclado1.nextLine();
         this.dataVencimento = LocalDate.parse(data, dateTimeFormatter);
+        
+        }else{
+            this.dataExpedicao = LocalDate.now();
+        }
+        
+        
     }
 
     public Cupom(String nome, int desconto, int numero) {
@@ -41,24 +58,28 @@ public class Cupom {
         this.desconto = (double)(desconto/100);
         chaveCupom.put(nome, Boolean.TRUE);
         this.numeroDeCupons = numero;
+        this.dataExpedicao = LocalDate.now();
         
 
     }
 
     protected boolean verificaSeEstaAtivo(String nome) {
         if (chaveCupom.containsKey(nome)) {
-            if(chaveCupom.containsValue(true)){
-                return true;
-            }else{
-                return false;
-            }
+            return chaveCupom.containsValue(true);
         } else {
             //cupom não existe
             return false;
         }
        
     }
-
+    protected boolean verificaSeJaVenceu(String nome){
+        if (chaveCupom.containsKey(nome)) {
+            return !(this.numeroDeCupons > 0 || getTempo()>=0);
+        } else {
+            //cupom não existe
+            return false;
+        }
+    }
     protected double usaCupom(String nome) {
         if (verificaSeEstaAtivo(nome)) {
             if(this.numeroDeCupons == -1 || this.numeroDeCupons > 0 || getTempo()>=0){
@@ -78,18 +99,18 @@ public class Cupom {
 
     }
 
-    protected void ativaCupom(String nome_) {
-        if(chaveCupom.containsKey(nome_)){
-            chaveCupom.put(nome_, Boolean.TRUE);
+    protected void ativaCupom(String nome) {
+        if(chaveCupom.containsKey(nome)){
+            chaveCupom.put(nome, Boolean.TRUE);
         }else{
             //nao existe esse cupom
         }
            
     }
     
-    protected void desativaCupom(String nome_) {
-        if(chaveCupom.containsKey(nome_)){
-            chaveCupom.put(nome_, Boolean.FALSE);
+    protected void desativaCupom(String nome) {
+        if(chaveCupom.containsKey(nome)){
+            chaveCupom.put(nome, Boolean.FALSE);
         }else{
             //nao existe esse cupom
         }
@@ -101,7 +122,7 @@ public class Cupom {
     }
    
     public int getTempo(){
-        return (int) ChronoUnit.DAYS.between( LocalDate.now() , this.dataVencimento);
+        return (int) ChronoUnit.DAYS.between( this.dataExpedicao , this.dataVencimento);
     }
     
     protected void mudaDataDeVencimento(){
