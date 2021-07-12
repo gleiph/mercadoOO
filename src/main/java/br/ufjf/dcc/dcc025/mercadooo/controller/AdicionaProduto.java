@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.ufjf.dcc.dcc025.mercadooo.view;
+package br.ufjf.dcc.dcc025.mercadooo.controller;
 
 import br.ufjf.dcc.dcc025.mercadooo.model.Dados;
 import br.ufjf.dcc.dcc025.mercadooo.model.Produto;
+import br.ufjf.dcc.dcc025.mercadooo.view.ProdutoGUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
