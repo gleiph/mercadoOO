@@ -19,7 +19,7 @@ public class Produtos {
     private String descricao;
     private String categoria;
     private float peso;
-
+    
     public Produtos(String nome, String marca, int quantidadeEstoque, float preco, String descricao, String categoria, float peso) {
         this.nome = nome;
         this.marca = marca;
@@ -31,14 +31,28 @@ public class Produtos {
     }
     
     
+    public String getNome() {
+        return nome;
+    }
+    
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+
+    public String getMarca() {
+        return marca;
+    }
+    
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+
+    public int getQuantidadeEstoque() {
+        return quantidadeEstoque;
+    }
+    
     public void setQuantidadeEstoque(int quantidadeEstoque) {
         if(quantidadeEstoque < 0 )
         {
@@ -47,7 +61,11 @@ public class Produtos {
         }
         this.quantidadeEstoque = quantidadeEstoque;
     }
+    
 
+    public float getPreco() {
+        return preco;
+    }
     public void setPreco(float preco) {
         if(preco <= 0 )
         {
@@ -56,15 +74,28 @@ public class Produtos {
         }
         this.preco = preco;
     }
+    
 
+    public String getDescricao() {
+        return descricao;
+    }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    
+    public String getCategoria() {
+        return categoria;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
+
+    public float getPeso() {
+        return peso;
+    }
     public void setPeso(float peso) {
         if(peso < 0 )//Caso o produto seja vendido por quantidade o peso == 0
         {
@@ -72,34 +103,6 @@ public class Produtos {
             return;
         }
         this.peso = peso;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public int getQuantidadeEstoque() {
-        return quantidadeEstoque;
-    }
-
-    public float getPreco() {
-        return preco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public float getPeso() {
-        return peso;
     }
     
     
