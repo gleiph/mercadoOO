@@ -85,5 +85,24 @@ public class Administrador {
         this.telefone = telefone;
         validaArrumaTelefone();
     }
+    
+    public void edita() {
+        String options[] = new String [3];
+        options[0] = "E-mail";
+        options[1] = "Telefone";
+
+        int option = JOptionPane.showOptionDialog(null, "O que deseja editar?", "Editar dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+            null, options, options[0]);
+        switch(option){
+            case 0:
+                String mail = JOptionPane.showInputDialog(null, "Digite o novo e-mail: ");
+                setEmail(mail);
+            case 1:
+                String telefone = JOptionPane.showInputDialog(null, "Digite o novo número: (XX) XXXXX-XXXX");
+                setTelefone(telefone);
+            default:
+                JOptionPane.showMessageDialog(null, "Nenhum dado alterado.");
+        }
+    }
    
 }
