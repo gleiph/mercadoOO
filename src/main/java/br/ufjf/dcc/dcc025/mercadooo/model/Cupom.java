@@ -24,29 +24,29 @@ public class Cupom {
     private String nome;
     private Map<String, Boolean> chaveCupom;
     private double desconto;
-    private int numeroDeCupons = -1;
+    private int numeroDeCupons ;
     private LocalDate dataVencimento;
-    
-    public Cupom(String nome_, int desconto_, String data_) {
+    // botar uma data do dia de inicio
+    public Cupom(String nome_, int desconto_, String data) {
         this.nome = nome_;
         this.desconto = (double)(desconto_/100);
         chaveCupom.put(nome_, Boolean.TRUE);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.dataVencimento = LocalDate.parse(data_, dateTimeFormatter);
+        this.dataVencimento = LocalDate.parse(data, dateTimeFormatter);
     }
 
-    public Cupom(String nome_, int desconto_, int numero) {
+    public Cupom(String nome, int desconto, int numero) {
 
-        this.nome = nome_;
-        this.desconto = (double)(desconto_/100);
-        chaveCupom.put(nome_, Boolean.TRUE);
+        this.nome = nome;
+        this.desconto = (double)(desconto/100);
+        chaveCupom.put(nome, Boolean.TRUE);
         this.numeroDeCupons = numero;
         
 
     }
 
-    protected boolean verificaSeEstaAtivo(String nome_) {
-        if (chaveCupom.containsKey(nome_)) {
+    protected boolean verificaSeEstaAtivo(String nome) {
+        if (chaveCupom.containsKey(nome)) {
             if(chaveCupom.containsValue(true)){
                 return true;
             }else{
@@ -59,8 +59,8 @@ public class Cupom {
        
     }
 
-    protected double usaCupom(String nome_) {
-        if (verificaSeEstaAtivo(nome_)) {
+    protected double usaCupom(String nome) {
+        if (verificaSeEstaAtivo(nome)) {
             if(this.numeroDeCupons == -1 || this.numeroDeCupons > 0 || getTempo()>=0){
                 this.numeroDeCupons -= 1;
             return getDesconto();
@@ -99,12 +99,7 @@ public class Cupom {
     protected double getDesconto() {
         return this.desconto;
     }
-    
-    // nao sei como implementar esse dai
-    protected void deletarCupom(){
-     
-    }
-    
+   
     public int getTempo(){
         return (int) ChronoUnit.DAYS.between( LocalDate.now() , this.dataVencimento);
     }
