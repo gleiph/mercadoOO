@@ -5,6 +5,8 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.view;
 
+import br.ufjf.dcc.dcc025.mercadooo.controller.AdicionaProduto;
+import br.ufjf.dcc.dcc025.mercadooo.controller.CancelaProduto;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
@@ -87,6 +89,7 @@ public class ProdutoGUI {
         botaoCadastrar.addActionListener(new AdicionaProduto(this));
 
         JButton botaoCancelar = new JButton("Cancelar");
+        botaoCancelar.addActionListener(new CancelaProduto());
 
         painel.add(botaoCadastrar);
 
