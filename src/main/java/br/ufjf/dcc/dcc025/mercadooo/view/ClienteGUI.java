@@ -1,6 +1,6 @@
 package br.ufjf.dcc.dcc025.mercadooo.view;
 
-import br.ufjf.dcc.dcc025.mercadooo.controller.AdicionaCliente;
+import br.ufjf.dcc.dcc025.mercadooo.controller.CadastraCliente;
 import br.ufjf.dcc.dcc025.mercadooo.controller.CancelaCliente;
 import br.ufjf.dcc.dcc025.mercadooo.controller.EditaCliente;
 
@@ -68,12 +68,17 @@ public class ClienteGUI {
             JPanel painel = new JPanel();
 
             JButton botaoCadastrar = new JButton("Cadastrar");
-            botaoCadastrar.addActionListener(new AdicionaCliente(this));
+            botaoCadastrar.addActionListener(new CadastraCliente(this));
+
+            JButton botaoEditar = new JButton("Editar");
+            botaoCadastrar.addActionListener(new EditaCliente(this));
 
             JButton botaoCancelar = new JButton("Cancelar");
             botaoCancelar.addActionListener(new CancelaCliente());
 
             painel.add(botaoCadastrar);
+
+            painel.add(botaoEditar);
 
             painel.add(botaoCancelar);
 
