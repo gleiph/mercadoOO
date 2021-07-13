@@ -20,4 +20,10 @@ public class Dados {
         produtos = new ArrayList<>();
     }
     
+    public static List<Administrador> administradores;
+    
+    static{
+        administradores = new ArrayList<>();
+    }
+    
 }

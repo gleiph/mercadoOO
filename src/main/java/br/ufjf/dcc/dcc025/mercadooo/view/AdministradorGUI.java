@@ -84,16 +84,16 @@ public class AdministradorGUI {
     
    public static void main(String[] args) {
 
-        JFrame tela = new JFrame("Cadastra Produto");
-        ProdutoGUI produtoGUI = new ProdutoGUI();
+        JFrame tela = new JFrame("Cadastra Administrador");
+        AdministradorGUI administradorGUI = new AdministradorGUI();
         
         tela.setSize(600, 300);
 
         tela.setLayout(new BorderLayout());
 
-        tela.add(produtoGUI.desenha(), BorderLayout.CENTER);
+        tela.add(administradorGUI.desenha(), BorderLayout.CENTER);
 
-        tela.add(produtoGUI.desenhaBotoes(), BorderLayout.SOUTH);
+        tela.add(administradorGUI.desenhaBotoes(), BorderLayout.SOUTH);
 
         tela.setVisible(true);
         tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -119,8 +119,4 @@ public class AdministradorGUI {
     public JTextField getTfTelefone() {
         return tfTelefone;
     }
-   
-   
-    
-    
 }

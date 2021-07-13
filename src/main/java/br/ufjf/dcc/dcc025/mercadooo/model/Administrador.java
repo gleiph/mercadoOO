@@ -7,11 +7,11 @@ public class Administrador {
     
     private String nome;
     private String cpf;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String email;
     private String telefone;
 
-    public Administrador(String nome, String cpf, Date dataNascimento, String email, String telefone) {
+    public Administrador(String nome, String cpf, String dataNascimento, String email, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -61,11 +61,11 @@ public class Administrador {
         validaArrumaCpf();
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
