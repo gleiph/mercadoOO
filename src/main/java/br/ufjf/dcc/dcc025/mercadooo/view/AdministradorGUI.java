@@ -46,6 +46,8 @@ public class AdministradorGUI {
         JLabel jlEmail = new JLabel("Email: ");
         JLabel jlTelefone = new JLabel("Telefone (xx)xxxxx-xxxx: ");
         
+        painel.setLayout(new GridLayout(0, 2));
+        
         painel.add(jlNome);
         painel.add(tfNome);
         
