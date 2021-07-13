@@ -32,7 +32,7 @@ public class AdministradorGUI {
     public AdministradorGUI(){
         this.tfNome = new JTextField(50);
         this.tfCpf = new JTextField(11);
-        //this.dataNascimento = new JTextField(50);
+        this.tfDataNascimento = new JTextField(50);
         this.tfEmail = new JTextField(50);
         this.tfTelefone = new JTextField(50);
     }
@@ -41,10 +41,10 @@ public class AdministradorGUI {
         JPanel painel = new JPanel();
         
         JLabel jlNome = new JLabel("Nome: ");
-        JLabel jlCpf = new JLabel("Nome: ");
-        //JLabel jlDataNascimento = new JLabel("Nome: ");
-        JLabel jlEmail = new JLabel("Nome: ");
-        JLabel jlTelefone = new JLabel("Nome: ");
+        JLabel jlCpf = new JLabel("CPF/CNPJ: ");
+        JLabel jlDataNascimento = new JLabel("Data de Nascimento (dd/mm/aa): ");
+        JLabel jlEmail = new JLabel("Email: ");
+        JLabel jlTelefone = new JLabel("Telefone (xx)xxxxx-xxxx: ");
         
         painel.add(jlNome);
         painel.add(tfNome);
@@ -52,8 +52,8 @@ public class AdministradorGUI {
         painel.add(jlCpf);
         painel.add(tfCpf);
         
-        //painel.add(jlDataNascimento);
-        //painel.add(tfDataNascimento);
+        painel.add(jlDataNascimento);
+        painel.add(tfDataNascimento);
         
         painel.add(jlEmail);
         painel.add(tfEmail);
@@ -69,10 +69,10 @@ public class AdministradorGUI {
         JPanel painel = new JPanel();
 
         JButton botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.addActionListener(new AdicionaProduto(this));
+        botaoCadastrar.addActionListener(new AdicionaAdministrador(this));
 
         JButton botaoCancelar = new JButton("Cancelar");
-        botaoCancelar.addActionListener(new CancelaProduto());
+        botaoCancelar.addActionListener(new CancelaAdministrador());
 
         painel.add(botaoCadastrar);
 
