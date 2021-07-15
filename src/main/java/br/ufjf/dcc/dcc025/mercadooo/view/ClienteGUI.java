@@ -33,12 +33,12 @@ public class ClienteGUI {
         public JPanel desenha() {
             JPanel painel = new JPanel();
 
-            JLabel jlNome = new JLabel("Nome: ");
-            JLabel jlCpfcnpj = new JLabel("CPF/CNPJ: ");
-            JLabel jlEndereco = new JLabel("Endereço: ");
-            JLabel jlDataNascimento = new JLabel("Data de nascimento(dd/mm/aaaa): ");
-            JLabel jlEmail = new JLabel("Email: ");
-            JLabel jlTelefone = new JLabel("Telefone (xx)xxxxx-xxxx: ");
+            JLabel jlNome = new JLabel(tfNome.getText());
+            JLabel jlCpfcnpj = new JLabel(tfCpfcnpj.getText());
+            JLabel jlEndereco = new JLabel(tfEndereco.getText());
+            JLabel jlDataNascimento = new JLabel(tfDataNascimento.getText());
+            JLabel jlEmail = new JLabel(tfEmail.getText());
+            JLabel jlTelefone = new JLabel(tfTelefone.getText());
             
 
             painel.setLayout(new GridLayout(0, 2));
