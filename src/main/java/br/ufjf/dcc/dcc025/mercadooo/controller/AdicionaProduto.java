@@ -45,7 +45,7 @@ public class AdicionaProduto implements ActionListener{
         
         
         for (Produto produto1 : Dados.produtos) {
-            System.out.println(produto);
+            System.out.println(produto1);
         }
         
 
