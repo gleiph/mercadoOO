@@ -13,23 +13,15 @@ import java.util.List;
  * @author gleip
  */
 public class Dados {
- 
-    public static List<Produto> produtos; 
-    
+
+    public static List<Produto> produtos;
+    public static List<Cliente> clientes;
+    public static List<Administrador> administradores;
+
     static {
         produtos = new ArrayList<>();
-    }
-
-    public static List<Cliente> clientes; 
-    
-    static {
         clientes = new ArrayList<>();
-    }
-    
-    public static List<Administrador> administradores;
-    
-    static{
         administradores = new ArrayList<>();
     }
-    
+
 }

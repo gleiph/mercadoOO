@@ -103,4 +103,12 @@ public class Cliente {
 //        }
 //    }
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "nome=" + nome + ", cpfcnpj=" + cpfcnpj + 
+                ", endereco=" + endereco + ", dataNascimento=" + dataNascimento + 
+                ", email=" + email + ", telefone=" + telefone + '}';
+    }
+
+    
 }

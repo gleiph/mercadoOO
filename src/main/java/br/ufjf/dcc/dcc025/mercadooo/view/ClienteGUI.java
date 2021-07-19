@@ -33,12 +33,12 @@ public class ClienteGUI {
         public JPanel desenha() {
             JPanel painel = new JPanel();
 
-            JLabel jlNome = new JLabel(tfNome.getText());
-            JLabel jlCpfcnpj = new JLabel(tfCpfcnpj.getText());
-            JLabel jlEndereco = new JLabel(tfEndereco.getText());
-            JLabel jlDataNascimento = new JLabel(tfDataNascimento.getText());
-            JLabel jlEmail = new JLabel(tfEmail.getText());
-            JLabel jlTelefone = new JLabel(tfTelefone.getText());
+            JLabel jlNome = new JLabel("Nome:");
+            JLabel jlCpfcnpj = new JLabel("CNPJ:");
+            JLabel jlEndereco = new JLabel("Endereço:");
+            JLabel jlDataNascimento = new JLabel("Data de Nascimento:");
+            JLabel jlEmail = new JLabel("E-mail:");
+            JLabel jlTelefone = new JLabel("Telefone: ");
             
 
             painel.setLayout(new GridLayout(0, 2));
@@ -71,7 +71,7 @@ public class ClienteGUI {
             botaoCadastrar.addActionListener(new CadastraCliente(this));
 
             JButton botaoEditar = new JButton("Editar");
-            botaoCadastrar.addActionListener(new EditaCliente(this));
+            botaoEditar.addActionListener(new EditaCliente(this));
 
             JButton botaoCancelar = new JButton("Cancelar");
             botaoCancelar.addActionListener(new CancelaCliente());

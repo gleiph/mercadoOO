@@ -18,6 +18,9 @@ public class EditaCliente implements ActionListener{
         this.clienteGUI = clienteGUI;
     }
 
+    /*
+    Refatorar
+    */
     public JPanel editaCliente(Cliente cliente) {
         JPanel painel = new JPanel();
 
