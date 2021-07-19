@@ -7,11 +7,11 @@ public class Administrador {
     
     private String nome;
     private String cpf;
-    private Date dataNascimento;
+    private String dataNascimento;
     private String email;
     private String telefone;
 
-    public Administrador(String nome, String cpf, Date dataNascimento, String email, String telefone) {
+    public Administrador(String nome, String cpf, String dataNascimento, String email, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -61,11 +61,11 @@ public class Administrador {
         validaArrumaCpf();
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -84,6 +84,25 @@ public class Administrador {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
         validaArrumaTelefone();
+    }
+    
+    public void edita() {
+        String options[] = new String [3];
+        options[0] = "E-mail";
+        options[1] = "Telefone";
+
+        int option = JOptionPane.showOptionDialog(null, "O que deseja editar?", "Editar dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
+            null, options, options[0]);
+        switch(option){
+            case 0:
+                String mail = JOptionPane.showInputDialog(null, "Digite o novo e-mail: ");
+                setEmail(mail);
+            case 1:
+                String telefone = JOptionPane.showInputDialog(null, "Digite o novo número: (XX) XXXXX-XXXX");
+                setTelefone(telefone);
+            default:
+                JOptionPane.showMessageDialog(null, "Nenhum dado alterado.");
+        }
     }
    
 }

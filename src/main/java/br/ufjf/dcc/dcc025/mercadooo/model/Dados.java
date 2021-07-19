@@ -19,5 +19,17 @@ public class Dados {
     static {
         produtos = new ArrayList<>();
     }
+
+    public static List<Cliente> clientes; 
+    
+    static {
+        clientes = new ArrayList<>();
+    }
+    
+    public static List<Administrador> administradores;
+    
+    static{
+        administradores = new ArrayList<>();
+    }
     
 }
