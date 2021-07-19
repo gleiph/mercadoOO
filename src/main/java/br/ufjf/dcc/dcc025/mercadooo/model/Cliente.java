@@ -8,12 +8,12 @@ package br.ufjf.dcc.dcc025.mercadooo.model;
 import javax.swing.JTextField;
 
 public class Cliente {
-    String nome;
-    String cpfcnpj;
-    String endereco;
-    String dataNascimento;
-    String email;
-    String telefone;
+    private String nome;
+    private String cpfcnpj;
+    private String endereco;
+    private String dataNascimento;
+    private String email;
+    private String telefone;
 
 
     public Cliente (){
@@ -85,7 +85,7 @@ public class Cliente {
 //        options[0] = "E-mail";
 //        options[1] = "Endereço";
 //        options[2] = "Telefone";
-//
+
 //        int option = JOptionPane.showOptionDialog(null, "O que deseja editar?", "Editar dados", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, 
 //            null, options, options[0]);
 //        switch(option){
