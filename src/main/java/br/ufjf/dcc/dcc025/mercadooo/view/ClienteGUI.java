@@ -2,15 +2,24 @@ package br.ufjf.dcc.dcc025.mercadooo.view;
 
 import br.ufjf.dcc.dcc025.mercadooo.controller.CadastraCliente;
 import br.ufjf.dcc.dcc025.mercadooo.controller.CancelaCliente;
-import br.ufjf.dcc.dcc025.mercadooo.controller.EditaCliente;
+import br.ufjf.dcc.dcc025.mercadooo.model.Cliente;
+import br.ufjf.dcc.dcc025.mercadooo.model.Dados;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 
 
 public class ClienteGUI {
@@ -64,21 +73,17 @@ public class ClienteGUI {
             return painel;
         }
 
-        public JPanel desenhaBotoes() {
+
+        public JPanel botaoCadastro() {
             JPanel painel = new JPanel();
 
             JButton botaoCadastrar = new JButton("Cadastrar");
             botaoCadastrar.addActionListener(new CadastraCliente(this));
 
-            JButton botaoEditar = new JButton("Editar");
-            botaoEditar.addActionListener(new EditaCliente(this));
-
             JButton botaoCancelar = new JButton("Cancelar");
             botaoCancelar.addActionListener(new CancelaCliente());
 
             painel.add(botaoCadastrar);
-
-            painel.add(botaoEditar);
 
             painel.add(botaoCancelar);
 
@@ -95,10 +100,11 @@ public class ClienteGUI {
 
             tela.add(clienteGUI.desenha(), BorderLayout.CENTER);
 
-            tela.add(clienteGUI.desenhaBotoes(), BorderLayout.SOUTH);
+
+            tela.add(clienteGUI.botaoCadastro(), BorderLayout.SOUTH);
 
             tela.setVisible(true);
-            tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
 
         public JTextField getTfCpfcnpj() {
