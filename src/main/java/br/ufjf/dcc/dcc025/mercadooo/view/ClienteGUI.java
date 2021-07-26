@@ -2,24 +2,14 @@ package br.ufjf.dcc.dcc025.mercadooo.view;
 
 import br.ufjf.dcc.dcc025.mercadooo.controller.CadastraCliente;
 import br.ufjf.dcc.dcc025.mercadooo.controller.CancelaCliente;
-import br.ufjf.dcc.dcc025.mercadooo.model.Cliente;
-import br.ufjf.dcc.dcc025.mercadooo.model.Dados;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.GridLayout;
-
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 
 
 public class ClienteGUI {
