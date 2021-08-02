@@ -20,7 +20,7 @@ public class Produto {
     private String categoria;
     private float peso;
     private String codigo;
-
+    
     public Produto(){
         
     }
