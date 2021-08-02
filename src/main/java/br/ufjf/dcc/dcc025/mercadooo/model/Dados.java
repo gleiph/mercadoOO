@@ -14,7 +14,8 @@ import java.util.List;
  */
 public class Dados {
  
-    public static List<Produto> produtos; 
+    public static List<Produto> produtos;
+    public static Pedido pedido;
     
     static {
         produtos = new ArrayList<>();
@@ -23,7 +24,8 @@ public class Dados {
         produtos.add(new Produto("Pão", "Da casa", 30, 10, "Pão quentinho da casa", "Alimentos", 1, "0002"));
         produtos.add(new Produto("Bicicleta", "Caloi", 2, 1500, "Aro 15 quadro inox", "Brinquedos", 7.0f, "0003"));
         produtos.add(new Produto("Skate", "Santa Cruz", 4, 700, "Skate Profissional Santa Cruz 8.5 Completo Redbones Intruder", "Brinquedos", 3.0f, "0004"));
-
+        
+        pedido = new Pedido();
     }
     
 }
