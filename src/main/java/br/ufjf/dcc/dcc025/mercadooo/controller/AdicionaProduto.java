@@ -27,9 +27,10 @@ public class AdicionaProduto implements ActionListener{
     
     
     @Override
-    public void actionPerformed(ActionEvent ae) {
-
+    public void actionPerformed(ActionEvent ae) throws NumberFormatException {
+        
         Produto produto = new Produto();
+        
         
         produto.setCategoria(produtoGUI.getTfCategoria().getText());
         produto.setDescricao(produtoGUI.getTfDescricao().getText());

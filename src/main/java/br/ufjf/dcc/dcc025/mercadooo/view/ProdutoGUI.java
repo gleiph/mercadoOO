@@ -46,6 +46,19 @@ public class ProdutoGUI {
 
     }
 
+    public ProdutoGUI(JTextField tfQuantidade, JTextField tfNome, JTextField tfPreco, JTextField tfMarca, JTextField tfCategoria, JTextField tfPeso, JTextField tfDescricao, JTextField tfCodigo) {
+        this.tfQuantidade = tfQuantidade;
+        this.tfNome = tfNome;
+        this.tfPreco = tfPreco;
+        this.tfMarca = tfMarca;
+        this.tfCategoria = tfCategoria;
+        this.tfPeso = tfPeso;
+        this.tfDescricao = tfDescricao;
+        this.tfCodigo = tfCodigo;
+    }
+    
+    
+    
     public JPanel desenha() {
 
         JPanel painel = new JPanel();

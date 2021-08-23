@@ -20,6 +20,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        
+        CardLayout cl = (CardLayout) clMenu.getLayout();
+        InterfaceCarrinho interfaceCarrinho = new InterfaceCarrinho();
+        clMenu.add("telaCompras", interfaceCarrinho.getContentPane());
+        cl.addLayoutComponent( interfaceCarrinho.getContentPane(), "telaCompras");
     }
 
     /**
@@ -36,8 +41,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         clMenu = new javax.swing.JPanel();
         painelInicial = new javax.swing.JPanel();
         btnComprar = new javax.swing.JButton();
-        painelCompras = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +53,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         clMenu.setLayout(new java.awt.CardLayout());
 
-        btnComprar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/store-small.png")));
         btnComprar.setText("Comprar");
         btnComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,27 +79,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         clMenu.add(painelInicial, "telaPadrao");
 
-        jLabel1.setText("teste");
-
-        javax.swing.GroupLayout painelComprasLayout = new javax.swing.GroupLayout(painelCompras);
-        painelCompras.setLayout(painelComprasLayout);
-        painelComprasLayout.setHorizontalGroup(
-            painelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelComprasLayout.createSequentialGroup()
-                .addGap(322, 322, 322)
-                .addComponent(jLabel1)
-                .addContainerGap(453, Short.MAX_VALUE))
-        );
-        painelComprasLayout.setVerticalGroup(
-            painelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelComprasLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel1)
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
-
-        clMenu.add(painelCompras, "telaCompras");
-
         javax.swing.GroupLayout painleMenuPrincipalLayout = new javax.swing.GroupLayout(painleMenuPrincipal);
         painleMenuPrincipal.setLayout(painleMenuPrincipalLayout);
         painleMenuPrincipalLayout.setHorizontalGroup(
@@ -114,33 +96,52 @@ public class MenuPrincipal extends javax.swing.JFrame {
         painleMenuPrincipalLayout.setVerticalGroup(
             painleMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painleMenuPrincipalLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addComponent(jlTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(painleMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(btnVoltar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painleMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(painleMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVoltar)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarActionPerformed
         CardLayout cl = (CardLayout) clMenu.getLayout();
-        InterfaceCarrinho interfaceCarrinho = new InterfaceCarrinho();
-        cl.addLayoutComponent( interfaceCarrinho.getContentPane(), "painelCarrinho");
-        cl.show(clMenu, "painelCarrinho");
+        cl.show(clMenu, "telaCompras");
         clMenu.setLayout(cl);
     }//GEN-LAST:event_btnComprarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        CardLayout cl = (CardLayout) clMenu.getLayout();
+        cl.previous(clMenu);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +184,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JPanel clMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlTitulo;
-    private javax.swing.JPanel painelCompras;
     private javax.swing.JPanel painelInicial;
     private javax.swing.JPanel painleMenuPrincipal;
     // End of variables declaration//GEN-END:variables

@@ -9,7 +9,9 @@ import br.ufjf.dcc.dcc025.mercadooo.controller.AdicionaItem;
 import br.ufjf.dcc.dcc025.mercadooo.model.Dados;
 import br.ufjf.dcc.dcc025.mercadooo.model.Item;
 import br.ufjf.dcc.dcc025.mercadooo.model.Produto;
+import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -45,12 +47,16 @@ public class InterfaceCarrinho extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 300));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         painelCarrinho.setMinimumSize(new java.awt.Dimension(800, 400));
 
         cbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>());
+        cbProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbProdutosActionPerformed(evt);
+            }
+        });
 
         jtPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,6 +83,12 @@ public class InterfaceCarrinho extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtPedido);
 
+        jsQuantidade.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jsQuantidadeStateChanged(evt);
+            }
+        });
+
         jButton1.setText("Adicionar ao Carrinho");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +109,7 @@ public class InterfaceCarrinho extends javax.swing.JFrame {
                 .addGroup(painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelCarrinhoLayout.createSequentialGroup()
                         .addGroup(painelCarrinhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbProdutos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jsQuantidade)
                             .addGroup(painelCarrinhoLayout.createSequentialGroup()
@@ -151,6 +163,7 @@ public class InterfaceCarrinho extends javax.swing.JFrame {
             int qtd = (Integer) jsQuantidade.getValue();
             Produto produto = (Produto) cbProdutos.getSelectedItem();
             Item item = new Item(produto, qtd);
+            
             Dados.pedido.adicionarItem(item);
            
 
@@ -167,10 +180,23 @@ public class InterfaceCarrinho extends javax.swing.JFrame {
             jtPedido.setModel(val);
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(rootPane, "Digite um número");
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(rootPane, "Digite um número inteiro Positivo");
         }
         
-        
+        jsQuantidade.setValue(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbProdutosActionPerformed
+
+    private void jsQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsQuantidadeStateChanged
+        // TODO add your handling code here:
+        int qtd  = (int) jsQuantidade.getValue();
+        if(qtd < 0)
+            jsQuantidade.setValue(0);
+    }//GEN-LAST:event_jsQuantidadeStateChanged
 
     /**
      * @param args the command line arguments

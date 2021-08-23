@@ -5,6 +5,7 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -29,8 +30,12 @@ public class Pedido {
         return valor;
     }
     
-    public void adicionarItem(Item item) {
+    public void adicionarItem (Item item) throws IOException {
+        //Verificar o Item e lançar exceção
+        if( item.getQuantidade() <= 0)
+            throw new IOException();
         itens.add(item);
+        
     }
 
     public List<Item> getItens() {
