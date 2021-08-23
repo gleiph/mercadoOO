@@ -5,6 +5,20 @@
  */
 package br.ufjf.dcc.dcc025.mercadooo.view;
 
+import br.ufjf.dcc.dcc025.mercadooo.model.Dados;
+import br.ufjf.dcc.dcc025.mercadooo.model.Produto;
+import br.ufjf.dcc.dcc025.mercadooo.utils.Arquivo;
+import br.ufjf.dcc.dcc025.mercadooo.utils.Constantes;
+import br.ufjf.dcc.dcc025.mercadooo.utils.JSON;
+import com.google.gson.Gson;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pedro
@@ -38,6 +52,14 @@ public class InterfaceAdmin extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -121,12 +143,37 @@ public class InterfaceAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuRemoverProdutoActionPerformed
 
     private void menuAdiconarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdiconarProdutoActionPerformed
-        
+
         CadastroProdutoInternalFrame cadastroProdutoInternalFrame = new CadastroProdutoInternalFrame();
-        
+
         jDesktopPane1.add(cadastroProdutoInternalFrame);
         cadastroProdutoInternalFrame.setVisible(true);
     }//GEN-LAST:event_menuAdiconarProdutoActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            // TODO add your handling code here:
+            String lerArquivo = Arquivo.lerArquivo(Constantes.ARQUIVO_PRODUTOS);
+            
+            Dados.produtos = JSON.toProdutos(lerArquivo);
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("Tratar");
+            Dados.produtos = new ArrayList<>();
+        }
+        
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        String toJson = JSON.toJson(Dados.produtos);
+        try {
+            Arquivo.escreverArquivo(Constantes.ARQUIVO_PRODUTOS, toJson);
+        } catch (IOException ex) {
+            System.out.println("Tratar");
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
